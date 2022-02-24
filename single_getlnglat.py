@@ -17,15 +17,9 @@ def track(inputfilename,outputfilename_lipetsk,outputfilename_perm,out_error_nam
     out_error = open(out_error_name+'.csv','w')
 
     #Lipetsk and Perm
-    lipetsk = [[37.507324,53.683695],[40.957031,51.767839]] #lefthead,rightbottom
-    #39.3434,52.7521;39.9442,52.4794 城市
-    #[37.507324,53.683695],[40.957031,51.767839] 州
-    perm = [[51.525878,61.825040],[59.677734,56.035225]] 
-    #55.6293,58.2611;56.8309,57.7855 城市
-    #[51.525878,61.825040],[59.677734,56.035225] 州
+    lipetsk = [[39.3434,52.7521],[39.9442,52.4794]] #lefthead,rightbottom
+    perm = [[55.6293,58.2611],[56.8309,57.7855]] 
     
-
-    #把两个城市里的道路分别筛出来，合并到两个文件
 
     for l in f.readlines():
         
@@ -67,9 +61,4 @@ def track(inputfilename,outputfilename_lipetsk,outputfilename_perm,out_error_nam
 
     out_lipetsk.close()
     out_perm.close()
-    out_error.close
-
-
-    #平均速度7*24分布
-    #周一-周五早、晚高峰时间算出来
-    #周末高峰时间算出来
+    out_error.close()
