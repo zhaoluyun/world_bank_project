@@ -6,7 +6,7 @@ socket.setdefaulttimeout(timeout)
 import threading
 import single_getlnglat
 
-thread_list = [] # 线程list
+thread_list = [] 
 
 
 for i in range(0,37):
@@ -20,9 +20,9 @@ for i in range(0,37):
 
 
 for t in thread_list:
-    t.start() # 子线程开始
+    t.start() 
 
 for t in thread_list:
-    t.join()  # 子线程全部加入，主线程等所有子线程运行完毕
+    t.join()  
 
 
