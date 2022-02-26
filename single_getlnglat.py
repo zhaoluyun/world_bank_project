@@ -9,17 +9,17 @@ def inbox(lng,lat,city):
         return False
 
 
-def track(inputfilename,outputfilename_lipetsk,outputfilename_perm,out_error_name):
+def track(inputfilename,outputfilename,out_other_name,out_error_name):
 
     f = open(inputfilename+'.csv','r')
-    out_lipetsk = open(outputfilename_lipetsk+'.csv','w')
-    out_perm = open(outputfilename_perm+'.csv','w')
+    out = open(outputfilename+'.csv','w')
+    out_other = open(out_other_name+'.csv','w')
     out_error = open(out_error_name+'.csv','w')
 
-    #Lipetsk and Perm
-    lipetsk = [[39.3434,52.7521],[39.9442,52.4794]] #lefthead,rightbottom
-    perm = [[55.6293,58.2611],[56.8309,57.7855]] 
-    
+    #box
+    #volgograd = [[43.9872,48.9358],[44.8500,48.3705]] #lefthead,rightbottom
+    omsk = [[72.8586,55.5084],[73.8638,54.7516]] #lefthead,rightbottom
+
 
     for l in f.readlines():
         
@@ -47,18 +47,19 @@ def track(inputfilename,outputfilename_lipetsk,outputfilename_perm,out_error_nam
         lng2 = node2['lon']
         lat2 = node2['lat']
 
-        if inbox(lng1,lat1,lipetsk) or inbox(lng2,lat2,lipetsk):
+        if inbox(lng1,lat1,omsk) or inbox(lng2,lat2,omsk):
             out_line = '%f,%f,%f,%f,' % (lng1,lat1,lng2,lat2)
-            out_lipetsk.write(out_line)
-            out_lipetsk.write(l)
+            out.write(out_line)
+            out.write(l)
 
-        if inbox(lng1,lat1,perm) or inbox(lng2,lat2,perm):
+        else:
             out_line = '%f,%f,%f,%f,' % (lng1,lat1,lng2,lat2)
-            out_perm.write(out_line)
-            out_perm.write(l)
+            out_other.write(out_line)
+            out_other.write(l)
 
     f.close()
 
-    out_lipetsk.close()
-    out_perm.close()
+    out.close()
+    out_other.close()
     out_error.close()
+
