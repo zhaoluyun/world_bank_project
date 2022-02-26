@@ -9,7 +9,7 @@ import single_getlnglat
 thread_list = [] 
 
 
-for i in range(0,10):
+for i in range(0,13):
     inputfilename = 'input_omsk/input_omsk_'+str(i)
     outputfilename = 'output_omsk/output_omsk_'+str(i)
     out_other_name = 'output_omsk/omsk_other_'+str(i)
